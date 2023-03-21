@@ -75,11 +75,13 @@
             light.intensity = 0.7;
         
             // Our built-in 'sphere' shape.
-            var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 2, segments: 32}, scene);
+            //var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 2, segments: 32}, scene);
         
             // Move the sphere upward 1/2 its height
-            sphere.position.y = 1;
-        
+            //sphere.position.y = 1;
+
+            BABYLON.SceneLoader.Append("scenes/Scene1/", "CubeTest1.glb", scene);
+
             scene.createDefaultEnvironment();
         
             // XR
