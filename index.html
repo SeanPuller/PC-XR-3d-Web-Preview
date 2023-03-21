@@ -82,6 +82,9 @@
 
             BABYLON.SceneLoader.Append("scenes/Scene1/", "CubeTest1.glb", scene);
 
+            // Skybox
+            var dome = new BABYLON.PhotoDome("testdome", "./textures/equirectangular.png", scene);
+
             scene.createDefaultEnvironment();
         
             // XR
