@@ -81,8 +81,9 @@
             //sphere.position.y = 1;
 
             BABYLON.SceneLoader.Append("scenes/Scene1/", "CubeTest1.glb", scene);
-            const eqTexture = new BABYLON.EquiRectangularCubeTexture("textures/clouds.jpg", scene, 512)
-
+/*
+            const eqTexture = new BABYLON.EquiRectangularCubeTexture("textures/clouds.jpg", scene, 1024)
+/*
             const hdrSkybox = BABYLON.Mesh.CreateBox("hdrSkyBox", 1000.0, scene);
             const hdrSkyboxMaterial = new BABYLON.PBRMaterial("skyBox", scene);
             hdrSkyboxMaterial.backFaceCulling = false;
@@ -92,11 +93,23 @@
             hdrSkyboxMaterial.disableLighting = false;
             hdrSkybox.material = hdrSkyboxMaterial;
             hdrSkybox.infiniteDistance = true;
+*/
+            var dome = new BABYLON.PhotoDome(
+            "testdome",
+            "textures/clouds.jpg",
+            {
+                resolution: 64,
+                size: 1024
+            },
+            scene
+            );
+            dome.rotation.y = 1.57079632679; //rotate to align
 
 
 
             // XR
-            // const xrHelper = await scene.createDefaultXRExperienceAsync();
+            var ground = BABYLON.Mesh.CreateGround("ground1", 6, 6, 2, scene);
+            const xrHelper = await scene.createDefaultXRExperienceAsync({floorMeshes: [ground]});
         
             return scene;
         
