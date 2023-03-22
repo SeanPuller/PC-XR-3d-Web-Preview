@@ -83,10 +83,9 @@
             BABYLON.SceneLoader.Append("scenes/Scene1/", "CubeTest1.glb", scene);
 
             // Skybox
-            var dome = new BABYLON.PhotoDome("testdome", "./textures/equirectangular.png", scene);
+            var hdrTexture = new BABYLON.CubeTexture("/textures/clouds.hdr", scene);
+            scene.createDefaultSkybox(hdrTexture, true, 10000);
 
-            scene.createDefaultEnvironment();
-        
             // XR
             const xrHelper = await scene.createDefaultXRExperienceAsync();
         
