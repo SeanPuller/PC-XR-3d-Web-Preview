@@ -114,7 +114,11 @@
             const xrHelper = scene.createDefaultXRExperienceAsync();
             const featureManager = xrHelper.baseExperience.featuresManager;
             featureManager.disableFeature(BABYLON.WebXRFeatureName.TELEPORTATION);
-            const movementFeature = featureManager.enableFeature(BABYLON.WebXRFeatureName.MOVEMENT);
+            const movementFeature = featureManager.enableFeature(BABYLON.WebXRFeatureName.MOVEMENT, 'latest', {
+                xrInput: xr.input,
+                // add options here
+                movementOrientationFollowsViewerPose: true, // default true
+            });
         
             return scene;
         
