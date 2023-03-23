@@ -109,14 +109,14 @@
             // XR
             // var ground = BABYLON.Mesh.CreateGround("ground1", 6, 6, 2, scene);
             // const xrHelper = await scene.createDefaultXRExperienceAsync({floorMeshes: [ground]});
-            const xrHelper = await scene.createDefaultXRExperienceAsync({disableTeleportation: true});
-            const featureManager = xr.baseExperience.featuresManager;
+            const xrHelper = await scene.createDefaultXRExperienceAsync();
+            // const featureManager = xr.baseExperience.featuresManager;
     
-            const movementFeature = featureManager.enableFeature(BABYLON.WebXRFeatureName.MOVEMENT, 'latest', {
-                xrInput: xr.input,
-                // add options here
-                movementOrientationFollowsViewerPose: true, // default true
-            });
+            // const movementFeature = featureManager.enableFeature(BABYLON.WebXRFeatureName.MOVEMENT, 'latest', {
+            //     xrInput: xr.input,
+            //     // add options here
+            //     movementOrientationFollowsViewerPose: true, // default true
+            // });
         
             return scene;
         
