@@ -106,15 +106,15 @@
             dome.rotation.y = 1.57079632679; //rotate to align
 
             // XR
-            // var ground = BABYLON.Mesh.CreateGround("ground1", 6, 6, 2, scene);
-            // const xrHelper = await scene.createDefaultXRExperienceAsync({floorMeshes: [ground]});
+            var ground = scene.getMeshByName("Floor");
+            const xrHelper = await scene.createDefaultXRExperienceAsync({floorMeshes: [scene.meshes]});
 
-            const xrHelper = await scene.createDefaultXRExperienceAsync();
+            // const xrHelper = await scene.createDefaultXRExperienceAsync();
 
-            const featureManager = xrHelper.baseExperience.featuresManager;
-            featureManager.disableFeature(BABYLON.WebXRFeatureName.TELEPORTATION);
+            // const featureManager = xrHelper.baseExperience.featuresManager;
+            // featureManager.disableFeature(BABYLON.WebXRFeatureName.TELEPORTATION);
 
-            const movementFeature = featureManager.enableFeature(BABYLON.WebXRFeatureName.MOVEMENT);
+            // const movementFeature = featureManager.enableFeature(BABYLON.WebXRFeatureName.MOVEMENT);
         
             return scene;
         
