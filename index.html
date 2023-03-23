@@ -60,11 +60,10 @@
             var scene = new BABYLON.Scene(engine);
         
             // This creates and positions a free camera (non-mesh)
-            var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
-        
-            // This targets the camera to scene origin
-            camera.setTarget(BABYLON.Vector3.Zero());
-        
+            var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 1, 0), scene);
+            camera.fov = 1.3;
+            camera.minZ = 0.1
+                    
             // This attaches the camera to the canvas
             camera.attachControl(canvas, true);
         
@@ -80,7 +79,7 @@
             // Move the sphere upward 1/2 its height
             //sphere.position.y = 1;
 
-            BABYLON.SceneLoader.Append("scenes/Scene1/", "CubeTest1.glb", scene);
+            BABYLON.SceneLoader.Append("scenes/", "TestObject.glb", scene);
 /*
             const eqTexture = new BABYLON.EquiRectangularCubeTexture("textures/clouds.jpg", scene, 1024)
 /*
@@ -96,7 +95,7 @@
 */
             var dome = new BABYLON.PhotoDome(
             "testdome",
-            "textures/clouds.jpg",
+            "textures/HDRi.png",
             {
                 resolution: 64,
                 size: 1024
@@ -108,8 +107,9 @@
 
 
             // XR
-            var ground = BABYLON.Mesh.CreateGround("ground1", 6, 6, 2, scene);
-            const xrHelper = await scene.createDefaultXRExperienceAsync({floorMeshes: [ground]});
+            // var ground = BABYLON.Mesh.CreateGround("ground1", 6, 6, 2, scene);
+            var floorMeshes = scene.meshes;
+            const xrHelper = await scene.createDefaultXRExperienceAsync({floorMeshes: [floorMeshes]});
         
             return scene;
         
