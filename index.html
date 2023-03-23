@@ -106,8 +106,9 @@
             dome.rotation.y = 1.57079632679; //rotate to align
 
             // XR
-            var ground = scene.getMeshByName("Floor");
-            const xrHelper = await scene.createDefaultXRExperienceAsync({floorMeshes: [ground]});
+            var ground = BABYLON.Mesh.CreateGround("ground1", 15, 15, 2, scene);
+            ground.visibility = 0;
+            const xrHelper = await scene.createDefaultXRExperienceAsync({floorMeshes: [scene.meshes]});
 
             // const xrHelper = await scene.createDefaultXRExperienceAsync();
 
