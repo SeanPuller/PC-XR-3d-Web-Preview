@@ -106,16 +106,15 @@
             dome.rotation.y = 1.57079632679; //rotate to align
 
             // XR
+            /*
             var ground = BABYLON.Mesh.CreateGround("ground1", 15, 15, 2, scene);
             ground.visibility = 0;
             const xrHelper = scene.createDefaultXRExperienceAsync({floorMeshes: [ground]});
-
-            // const xrHelper = await scene.createDefaultXRExperienceAsync();
-
-            // const featureManager = xrHelper.baseExperience.featuresManager;
-            // featureManager.disableFeature(BABYLON.WebXRFeatureName.TELEPORTATION);
-
-            // const movementFeature = featureManager.enableFeature(BABYLON.WebXRFeatureName.MOVEMENT);
+*/
+            const xrHelper = scene.createDefaultXRExperienceAsync();
+            const featureManager = xrHelper.baseExperience.featuresManager;
+            featureManager.disableFeature(BABYLON.WebXRFeatureName.TELEPORTATION);
+            const movementFeature = featureManager.enableFeature(BABYLON.WebXRFeatureName.MOVEMENT);
         
             return scene;
         
