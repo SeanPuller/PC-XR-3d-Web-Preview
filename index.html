@@ -111,7 +111,7 @@
 
             const xrHelper = await scene.createDefaultXRExperienceAsync();
 
-            const featureManager = xr.baseExperience.featuresManager;
+            const featureManager = xrHelper.baseExperience.featuresManager;
             featureManager.disableFeature(BABYLON.WebXRFeatureName.TELEPORTATION);
 
             const movementFeature = featureManager.enableFeature(BABYLON.WebXRFeatureName.MOVEMENT, 'latest', {
