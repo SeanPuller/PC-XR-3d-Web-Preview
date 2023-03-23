@@ -81,19 +81,9 @@
             //sphere.position.y = 1;
 
             BABYLON.SceneLoader.Append("scenes/", "TestObject.glb", scene);
-/*
-            const eqTexture = new BABYLON.EquiRectangularCubeTexture("textures/clouds.jpg", scene, 1024)
-/*
-            const hdrSkybox = BABYLON.Mesh.CreateBox("hdrSkyBox", 1000.0, scene);
-            const hdrSkyboxMaterial = new BABYLON.PBRMaterial("skyBox", scene);
-            hdrSkyboxMaterial.backFaceCulling = false;
-            hdrSkyboxMaterial.reflectionTexture = eqTexture.clone();
-            hdrSkyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
-            hdrSkyboxMaterial.microSurface = 1.0;
-            hdrSkyboxMaterial.disableLighting = false;
-            hdrSkybox.material = hdrSkyboxMaterial;
-            hdrSkybox.infiniteDistance = true;
-*/
+
+            // const eqTexture = new BABYLON.EquiRectangularCubeTexture("textures/clouds.jpg", scene, 1024)
+
             var dome = new BABYLON.PhotoDome(
             "testdome",
             "textures/HDRi.png",
@@ -106,19 +96,19 @@
             dome.rotation.y = 1.57079632679; //rotate to align
 
             // XR
-            /*
+
             var ground = BABYLON.Mesh.CreateGround("ground1", 15, 15, 2, scene);
             ground.visibility = 0;
             const xrHelper = scene.createDefaultXRExperienceAsync({floorMeshes: [ground]});
-*/
-            const xrHelper = scene.createDefaultXRExperienceAsync();
-            const featureManager = xrHelper.baseExperience.featuresManager;
-            featureManager.disableFeature(BABYLON.WebXRFeatureName.TELEPORTATION);
-            const movementFeature = featureManager.enableFeature(BABYLON.WebXRFeatureName.MOVEMENT, 'latest', {
-                xrInput: xr.input,
-                // add options here
-                movementOrientationFollowsViewerPose: true, // default true
-            });
+
+            // const xrHelper = scene.createDefaultXRExperienceAsync();
+            // const featureManager = xrHelper.baseExperience.featuresManager;
+            // featureManager.disableFeature(BABYLON.WebXRFeatureName.TELEPORTATION);
+            // const movementFeature = featureManager.enableFeature(BABYLON.WebXRFeatureName.MOVEMENT, 'latest', {
+            //     xrInput: xr.input,
+            //     // add options here
+            //     movementOrientationFollowsViewerPose: true, // default true
+            // });
         
             return scene;
         
